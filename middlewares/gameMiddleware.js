@@ -10,7 +10,7 @@ export async function gameMiddleware(req, res, next){
             return res.status(400).send(error)
         } 
         return res.sendStatus(201)
-        next()
+        next();
     }catch(error){
         return res.status(500).send(error.message)
     }
