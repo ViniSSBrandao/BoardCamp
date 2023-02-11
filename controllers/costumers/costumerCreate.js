@@ -6,7 +6,7 @@ export async function costumerCreate(req, res){
     try{
         return res.sendStatus(201)
     }catch(error){
-        return res.status(500).send(error.response)
+        return res.status(500).send(error.message)
     }
     
     }
