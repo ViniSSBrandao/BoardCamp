@@ -10,7 +10,6 @@ try{
     if(exists.rowCount){
         return res.sendStatus(409)
     }
-    console.log(cpf, exists.rows)
     next();
 }catch(error){
     return res.status(500).send(error)
