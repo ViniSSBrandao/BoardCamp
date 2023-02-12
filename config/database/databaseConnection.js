@@ -3,7 +3,7 @@ import dotenv, { config } from "dotenv";
 
 dotenv.config();
 
-const {pool} = pg;
+const { Pool } = pg;
 
 const configDatabase ={
     connectionString: process.env.DATABASE_URL
@@ -11,4 +11,6 @@ const configDatabase ={
 
 if(process.env.MODE === 'prod') config.database.ssl = true;
 
-export const db = new pool(configDatabase)
+const db = new Pool(configDatabase);
+
+export default db

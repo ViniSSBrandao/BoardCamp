@@ -1,8 +1,12 @@
+import db from "../../config/database/databaseConnection.js"
 
 export async function costumerGet(req, res){
 
     try{
-        res.sendStatus(200)
+        // const {rows} = await db.query("SELECT * FROM game") 
+        const rows = await db.query("SELECT * FROM costumer") 
+
+        return res.status(200).send(rows)
     }catch(error){
         return res.send(error.message).status(500)
     }
