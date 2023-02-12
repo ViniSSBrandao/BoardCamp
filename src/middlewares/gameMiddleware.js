@@ -19,7 +19,7 @@ export async function gameMiddleware(req, res, next){
 export async function gameExists(req, res, next){
     const { name } = req.body
     try {
-        const gameDoubled = await db.query("SELECT * FROM games WHERE name = $1", [name]);
+        const gameDoubled = await db.query("SELECT * FROM games WHERE name = $1;", [name]);
         if(gameDoubled.rowCount){
             return res.sendStatus(409)
         }
