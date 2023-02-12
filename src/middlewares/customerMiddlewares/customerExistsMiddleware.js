@@ -7,8 +7,8 @@ const {cpf } = req.body
 try{
 
     const exists = await db.query("SELECT * FROM customers WHERE cpf = $1;", [cpf])
-    if(exists.rows){
-        res.status(409).send(error.message)
+    if(exists.rowCount){
+        return res.sendStatus(409)
     }
     console.log(cpf, exists.rows)
     next();
