@@ -1,6 +1,6 @@
 import { customerSchema } from "../../model/schemas/customerSchema.js";
 
-export async function customerPostMiddleware(req, res, next){
+export async function customerValidateMiddleware(req, res, next){
 const { name, phone, cpf, birthday } = req.body
 
 try{

@@ -4,13 +4,15 @@ import { customerGet } from "../controllers/customers/customerGet.js";
 import { customerGetById } from "../controllers/customers/customerGetId.js";
 
 import { customerExistsMiddleware } from "../middlewares/customerMiddlewares/customerExistsMiddleware.js";
-import { customerPostMiddleware } from "../middlewares/customerMiddlewares/customerMiddleware.js";
+import { customerValidateMiddleware } from "../middlewares/customerMiddlewares/customerMiddleware.js";
 
 
 const customerRouter = Router();
 
-customerRouter.post("/customer", customerPostMiddleware, customerExistsMiddleware, customerCreate);
-customerRouter.get("/customer", customerGet);
-customerRouter.get("/customer/:id", customerGetById);
+customerRouter.post("/customers", customerValidateMiddleware, customerExistsMiddleware, customerCreate);
+customerRouter.get("/customers", customerGet);
+customerRouter.get("/customers/:id", customerGetById);
+customerRouter.put("/customers", customerValidateMiddleware, customerGet);
+
 
 export default customerRouter;
