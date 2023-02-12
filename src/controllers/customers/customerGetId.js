@@ -8,7 +8,7 @@ export async function customerGetById(req, res){
         if(!costumer.rowCount){
             return res.status(404).send("User not found")
         }
-        res.send(costumer.rows)
+        res.send(costumer.rows[0])
     }catch(error){
         return res.send(error.message).status(500)
     }
