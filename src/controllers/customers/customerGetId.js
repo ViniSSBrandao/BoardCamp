@@ -1,5 +1,5 @@
 
-export async function costumerGetById(req, res){
+export async function customerGetById(req, res){
     const { id } = req.params
     try{
         const costumer = db.query("SELECT * FROM costumers WHERE id = $1", [id])

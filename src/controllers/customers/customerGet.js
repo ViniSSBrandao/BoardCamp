@@ -1,6 +1,6 @@
 import db from "../../config/database/databaseConnection.js"
 
-export async function costumerGet(req, res){
+export async function customerGet(req, res){
     try{
         const {rows} = await db.query("SELECT * FROM costumers") 
 

@@ -1,6 +1,6 @@
 
 
-export async function costumerGetById(req, res){
+export async function customerGetById(req, res){
 
     try{
         res.sendStatus(200)
