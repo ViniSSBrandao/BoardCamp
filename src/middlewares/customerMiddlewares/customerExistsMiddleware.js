@@ -1,5 +1,4 @@
 import db from "../../config/database/databaseConnection.js";
-import { customerSchema } from "../../model/schemas/customerSchema.js";
 
 export async function customerExistsMiddleware(req, res, next){
 const { cpf } = req.body

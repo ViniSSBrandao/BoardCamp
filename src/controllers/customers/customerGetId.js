@@ -4,7 +4,7 @@ export async function customerGetById(req, res){
     const { id } = req.params
     try{
         const costumer = await db.query(`SELECT * FROM customers WHERE id = ${id};`)
-        console.log(id)
+      
         if(!costumer.rowCount){
             return res.status(404).send("User not found")
         }
