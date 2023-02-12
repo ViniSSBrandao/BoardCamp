@@ -1,8 +1,8 @@
 import express from "express"
 import cors from "cors"
-import gameRouter from "./routers/gameRouters.js"
-import costumerRouter from "./routers/costumerRouter.js"
-import rentalRouter from "./routers/rentalsRouter.js"
+import gameRouter from "./src/routers/gameRouters.js"
+import costumerRouter from "./src/routers/costumerRouter.js"
+import rentalRouter from "./src/routers/rentalsRouter.js"
 import dotenv from "dotenv";
 
 dotenv.config();
