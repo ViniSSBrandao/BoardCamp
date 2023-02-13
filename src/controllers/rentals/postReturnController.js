@@ -24,7 +24,7 @@ export async function returnPost(req, res){
             delayFee,
             id])
         
-        return res.status(201).send()
+        return res.status(200).send()
     }catch(error){
         return res.status(500).send(error.message)
     } 

@@ -3,7 +3,7 @@ import db from "../../config/database/databaseConnection.js";
 export async function customerExistsMiddleware(req, res, next){
 const { cpf } = req.body
 const { id } = req.params
-console.log("cpf:" + id)
+
 
 try{
     const exists = await db.query("SELECT * FROM customers WHERE cpf = $1;", [cpf])
@@ -11,8 +11,6 @@ try{
     if(exists.rowCount>0){
          storedId =  exists.rows[0].id
     }
-
-    console.log("storedcpf:" + storedId)
 
 
     if((id != storedId) && storedId){
