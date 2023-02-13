@@ -13,12 +13,17 @@ import { rentalExistsMiddleware } from "../middlewares/rentalsMiddlewares/return
 const rentalRouter = Router();
 
 rentalRouter.get("/rentals", getRentals);
+
 rentalRouter.post("/rentals", RentalPostValidateMiddleware,
  customerIdExistsMiddleware, 
  gameAvailableMiddleware, 
  rentalPost)
-rentalRouter.post("/rentals/:id/return", rentalExistsMiddleware, gameAvailableMiddleware, returnPost);
-rentalRouter.delete("/rentals/:id", rentalExistsToDeleteMiddleware, deleteRental)
+
+rentalRouter.post("/rentals/:id/return", rentalExistsMiddleware, 
+ returnPost);
+
+rentalRouter.delete("/rentals/:id", rentalExistsToDeleteMiddleware,
+ deleteRental)
 
 
 export default rentalRouter;
