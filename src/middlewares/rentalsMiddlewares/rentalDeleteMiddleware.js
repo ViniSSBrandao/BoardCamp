@@ -1,6 +1,6 @@
 import db from "../../config/database/databaseConnection.js";
 
-export async function rentalExistsMiddleware(req, res, next){
+export async function rentalExistsToDeleteMiddleware(req, res, next){
 
 const { id } = req.params
 
@@ -8,7 +8,7 @@ console.log("a")
 try{
     const rental = await db.query(`SELECT * FROM rentals WHERE id = $1;`, [id])
 
-    if(rental.rows[0].returnDate){
+    if(!rental.rows[0].returnDate){
         return res.sendStatus(400)
     }
     
