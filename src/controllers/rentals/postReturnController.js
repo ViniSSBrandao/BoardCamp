@@ -15,8 +15,9 @@ export async function returnPost(req, res){
         const returnDate = dayjs(new Date()).format("YYYY-MM-DD");
         const delayedDaysMs = new Date(returnDate) - new Date(rentDate)
         const delayedDays = Math.floor(delayedDaysMs/86400000)
+        
 
-        let delayFee = (delayedDays - daysRented) * (2 * pricePerDay);
+        let delayFee = (delayedDays - daysRented) * ( pricePerDay);
         if(delayFee<0){ delayFee = 0 }
         console.log(delayedDays)
         console.log(delayFee)
