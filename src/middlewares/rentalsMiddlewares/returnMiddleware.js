@@ -9,9 +9,8 @@ try{
     const rental = await db.query(`SELECT * FROM rentals WHERE id = $1;`, [id])
     
     if(!rental.rowCount){
-        return res.sendStatus(400)
+        return res.sendStatus(404)
     }
-    return res.status(200).send(rental.rows)
     next();
 }catch(error){
     return res.status(500).send(error.message)
